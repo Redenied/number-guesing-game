@@ -9,16 +9,26 @@ import random
 lower = int(input("Lower range: "))
 upper = int(input("Upper range: "))
 
+# Get random number within given range
 number = random.randint(lower, upper)
-answer = False
-guess = 0
 
+def guessing(number):
+	# Initialize loop variables
+	answer = False
+	guess = 0
 
-while not answer:
-	guess = int(input("Input your guess: "))
-	if guess == number:
-		answer = True
-	else:
-		print("Wrong number, try again.")
+	# Keep trying as long as answer is not True
+	while not answer:
+		guess = int(input("Input your guess: "))
+		if guess == number:
+			answer = True
+		elif guess > number:
+			print("Wrong number, try again. Try a smaller number.")
+		elif guess < number:
+			print("Wrong number, try again. Try a greater number.")
 
-print(f"Congratulations! You guessed the number {number}. You won.")
+	return answer
+
+if guessing(number) == True:
+	print(f"Congratulations! You guessed the number {number}. You won.")
+#play_again = input("Want to play again?(Y/N) ").lower()

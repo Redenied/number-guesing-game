@@ -6,12 +6,6 @@ import random
 # Initial print
 # Split into functions
 
-lower = int(input("Lower range: "))
-upper = int(input("Upper range: "))
-
-# Get random number within given range
-number = random.randint(lower, upper)
-
 def guessing(number):
 	# Initialize loop variables
 	answer = False
@@ -29,6 +23,21 @@ def guessing(number):
 
 	return answer
 
-if guessing(number) == True:
-	print(f"Congratulations! You guessed the number {number}. You won.")
-#play_again = input("Want to play again?(Y/N) ").lower()
+def main():
+	# Get range provided by the user
+	lower = int(input("Lower range: "))
+	upper = int(input("Upper range: "))
+
+	# Get random number within given range
+	numer = random.randint(lower, upper)
+
+	# Print success message when guessed right
+	if guessing(number) == True:
+		print(f"Congratulations! You guessed the number {number}. You won.")
+
+	# Play again if user answers yes
+	play_again = input("Want to play again?(Y/N) ").lower()
+	if play_again == "y":
+		main()
+
+main()

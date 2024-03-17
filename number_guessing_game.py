@@ -29,7 +29,7 @@ def main():
 	upper = int(input("Upper range: "))
 
 	# Get random number within given range
-	numer = random.randint(lower, upper)
+	number = random.randint(lower, upper)
 
 	# Print success message when guessed right
 	if guessing(number) == True:

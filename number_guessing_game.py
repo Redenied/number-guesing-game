@@ -12,18 +12,24 @@ def guessing(number):
 	guess = 0
 
 	# Keep trying as long as answer is not True
-	while not answer:
-		guess = int(input("Input your guess: "))
-		if guess == number:
-			answer = True
-		elif guess > number:
-			print("Wrong number, try again. Try a smaller number.")
-		elif guess < number:
-			print("Wrong number, try again. Try a greater number.")
-
+	while True:
+		try:
+			guess = int(input("Input your guess: "))
+			if guess == number:
+				answer = True
+				break
+			elif guess > number:
+				print("Too high!")
+			elif  guess < number:
+				print("Too low!")
+		except ValueError:
+			print("Please enter a valid number.")
 	return answer
 
 def main():
+	# Initial print
+	print("Welcome to the Number Guessing game!\nPlease input the number range for this game.")
+
 	# Get range provided by the user
 	lower = int(input("Lower range: "))
 	upper = int(input("Upper range: "))
